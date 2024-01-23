@@ -19,7 +19,8 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@builder.io/sdk-vue": "^0.10.0",
+    "@builder.io/sdk": "^2.1.2",
+    "@builder.io/sdk-vue": "^0.11.5",
     "@builder.io/vue": "^0.1.12"
   }
 }
