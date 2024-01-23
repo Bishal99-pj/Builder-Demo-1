@@ -8,4 +8,26 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  modules: [
+    'nuxt-builderio',
+  ],
+  builderIO: {
+    apiKey : '2055e4c0d31442a89632d2cd2ef89618',
+    autoImports: [
+      'fetchEntries',
+      'fetchOneEntry',
+      'fetchBuilderProps',
+      'isEditing',
+      'isPreviewing',
+      'setEditorSettings',
+      'getBuilderSearchParams',
+      'createRegisterComponentMessage'
+    ],
+    defaultModel: 'page',
+    components: {
+      enabled: true,
+      dir: 'components/Builder',
+      prefix: 'BuilderCustom'
+    }
+  }
 })
