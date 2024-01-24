@@ -22,9 +22,7 @@
 import { RenderContent, getContent, isPreviewing } from '@builder.io/sdk-vue';
 
 // Register your Builder components
-import REGISTERED_COMPONENTS from '~/init.builder.ts';
-
-
+import {REGISTERED_COMPONENTS} from '~/init.builder.ts';
 
 
 // Enter your public API key

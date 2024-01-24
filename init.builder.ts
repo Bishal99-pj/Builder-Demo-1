@@ -3,7 +3,7 @@ import HelloWorld from './components/HelloWorld.vue';
 export const REGISTERED_COMPONENTS = [
     {
       component: HelloWorld,
-      name: 'MyHelloWorld',
+      name: 'MyFunComponent',
       canHaveChildren: true,
       inputs: [
         {
