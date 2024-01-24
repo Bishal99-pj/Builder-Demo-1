@@ -21,23 +21,10 @@
 <script setup>
 import { RenderContent, getContent, isPreviewing } from '@builder.io/sdk-vue';
 
-import HelloWorldComponent from '../components/HelloWorld.vue';
-
 // Register your Builder components
-const REGISTERED_COMPONENTS = [
-  {
-    component: HelloWorldComponent,
-    name: 'MyFunComponent',
-    canHaveChildren: true,
-    inputs: [
-      {
-        name: 'text',
-        type: 'string',
-        defaultValue: 'World',
-      },
-    ],
-  },
-];
+import REGISTERED_COMPONENTS from '~/init.builder.ts';
+
+
 
 
 // Enter your public API key
