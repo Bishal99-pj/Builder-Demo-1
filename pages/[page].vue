@@ -3,16 +3,8 @@
     <div class="text-center">Hello world from your Vue project. Below is Builder Content:</div>
 
     <div v-if="content || isPreviewing()">
-      <div>
-        page title:
-        {{ content?.data?.title || 'Unpublished' }}
-      </div>
-      <RenderContent
-        model="page"
-        :content="content"
-        :api-key="builderPublicKey"
-        :customComponents="REGISTERED_COMPONENTS"
-      />
+      <RenderContent model="page" :content="content" :api-key="builderPublicKey"
+        :customComponents="REGISTERED_COMPONENTS" />
     </div>
     <div v-else class="text-center">Content not Found</div>
   </div>
@@ -22,7 +14,7 @@
 import { RenderContent, getContent, isPreviewing } from '@builder.io/sdk-vue';
 
 // Register your Builder components
-import {REGISTERED_COMPONENTS} from '~/init.builder.ts';
+import { REGISTERED_COMPONENTS } from '~/init.builder.ts';
 
 
 // Enter your public API key
