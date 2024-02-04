@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@builder.io/sdk": "^2.1.2",
-    "@builder.io/sdk-vue": "^0.12.3",
+    "@builder.io/sdk-vue": "^0.12.5",
     "@builder.io/vue": "^0.1.12"
   }
 }
