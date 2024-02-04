@@ -3,7 +3,7 @@
         <div class="text-center">Hello world from your Vue project. Below is Builder Content:</div>
 
         <div v-if="content || isPreviewing()">
-            <RenderContent model="data" :content="content" :api-key="builderPublicKey"
+            <Content model="data" :content="content" :api-key="builderPublicKey"
                 :customComponents="REGISTERED_COMPONENTS" />
         </div>
         <div v-else class="text-center">Content not Found</div>
@@ -11,7 +11,7 @@
 </template>
   
 <script lang="ts" setup>
-import { RenderContent, fetchOneEntry, isPreviewing } from '@builder.io/sdk-vue';
+import { Content, fetchOneEntry, isPreviewing } from '@builder.io/sdk-vue';
 
 // Register your Builder components
 import { REGISTERED_COMPONENTS } from '~/init.builder';
