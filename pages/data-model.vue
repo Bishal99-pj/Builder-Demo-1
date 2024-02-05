@@ -1,35 +1,48 @@
 <template>
-    <div id="home">
-        <div class="text-center">Hello world from your Vue project. Below is Builder Content:</div>
-
-        <div v-if="content || isPreviewing()">
-            <Content model="data" :content="content" :api-key="builderPublicKey"
-                :customComponents="REGISTERED_COMPONENTS" />
+    <div class="flex justify-center gap-2 m-6">
+        <div class="card" v-for="p in products" :key="p.data.title">
+            <img :src="p.data.image" :alt="p.data.title">
+            <h1>{{ p.data.title }}</h1>
+            <p>{{ p.data.description }}</p>
         </div>
-        <div v-else class="text-center">Content not Found</div>
+
+        <div class="font-bold">
+            x : {{ width }} , y : {{ height }}
+        </div>
     </div>
 </template>
   
 <script lang="ts" setup>
-import { Content, fetchOneEntry, isPreviewing } from '@builder.io/sdk-vue';
+import { builder } from '@builder.io/sdk'
 
-// Register your Builder components
-import { REGISTERED_COMPONENTS } from '~/init.builder';
-
-// Enter your public API key
 const config = useRuntimeConfig()
-const builderPublicKey = config.public.builderApiKey
+builder.init(config.public.builderApiKey)
+const { width, height } = useWindowSize({ initialWidth: 0, initialHeight: 0 })
 
-const route = useRoute();
+const products = ref()
 
-// fetch builder content data
-const { data: content } = await useAsyncData('builderData', () =>
-    fetchOneEntry({
-        model: 'data',
-        apiKey: builderPublicKey,
-        userAttributes: {
-            urlPath: route.path,
-        },
+    watch(width, () => {
+        products.value = builder.getAll('sample-data', {
+            limit: width.value >= 1300 ? 2 : 1
+        })
+    }, {
+        immediate: false,
     })
-);
+
 </script>
+
+<style lang="postcss" scoped>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .card {
+        @apply flex flex-col items-center gap-2 w-[300px] h-[350px] border rounded-md border-stone-300 bg-sky-50 p-3
+    }
+}
+
+h1 {
+    @apply font-bold text-2xl capitalize
+}
+</style>

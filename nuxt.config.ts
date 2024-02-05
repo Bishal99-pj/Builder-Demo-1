@@ -8,9 +8,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: [
-    '@builder.io/sdk-vue/nuxt'
-  ],
+  modules: ['@builder.io/sdk-vue/nuxt', '@vueuse/nuxt'],
   runtimeConfig : {
     public : {
       builderApiKey : ''
