@@ -21,13 +21,10 @@ const { width, height } = useWindowSize({ initialWidth: 0, initialHeight: 0 })
 
 const products = ref()
 
-    watch(width, () => {
-        products.value = builder.getAll('sample-data', {
-            limit: width.value >= 1300 ? 2 : 1
-        })
-    }, {
-        immediate: false,
-    })
+products.value = await builder.getAll('sample-data', {
+    limit: width.value >= 1300 ? 2 : 1
+})
+
 
 </script>
 
